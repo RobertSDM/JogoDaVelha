@@ -9,17 +9,18 @@ const posiocoesVitoria = [
   [3, 5, 7],
 ];
 
-function checaVitoria(lista, alvo) {
+function checaVitoria(lista) {
   for (cont = 0; cont < posiocoesVitoria.length; cont++) {
     let contador = 0;
-    lista.forEach(n => {
-      if (posiocoesVitoria[cont].includes(parseInt(lista[cont]))) {
+    for (cont2 = 0; cont2 < lista.length; cont2++) {
+      let inclui = posiocoesVitoria[cont].includes(parseInt(lista[cont2]));
+      if (inclui) {
         contador++;
-        return contador;
+        if (contador === 3) {
+          console.log('GANHOU');
+          return;
+        }
       }
-    });
-    if (contador === 3) {
-      return console.log('ganhow ' + alvo.innerText);
     }
   }
 }
@@ -29,7 +30,6 @@ function checaVelha() {
   for (contador = 0; contador < quadrado.length; contador++) {
     if (quadrado[contador].innerText != '') {
       marca++;
-      console.log(marca);
       if (marca === 9) {
         return true;
       }

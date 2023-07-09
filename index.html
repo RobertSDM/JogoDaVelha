@@ -11,29 +11,49 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
     <script src="scripts/atribuirValores.js" defer></script>
     <script src="scripts/logicaJogo.js" defer></script>
     <title>Jogo da Velha</title>
   </head>
   <body>
-    <div class="container-jogo">
-      <h1 class="titulo">jogo da velha</h1>
-      <div class="jogo">
-        <div class="quadrado"></div>
-        <div class="quadrado"></div>
-        <div class="quadrado"></div>
-        <div class="quadrado"></div>
-        <div class="quadrado"></div>
-        <div class="quadrado"></div>
-        <div class="quadrado"></div>
-        <div class="quadrado"></div>
-        <div class="quadrado"></div>
+    <h1 class="titulo">Jogo da Velha</h1>
+    <div class="container-jogadores">
+      <div class="jogador1">
+        <h2 class="titulo-jogador">Jogador 1</h2>
+        <span class="pontos"></span>
+        <div class="barra-de-baixo"></div>
+      </div>
+      <div class="jogador2">
+        <h2 class="titulo-jogador">Jogador 2</h2>
+        <span class="pontos"></span>
+        <div class="barra-de-baixo"></div>
       </div>
     </div>
-    <div class="container-jogada-atual">
-      <h2 class="titulo-jogada-atual">Jogada Atual</h2>
-      <div class="exibe-jogada-atual"></div>
+    <div class="container-jogo-da-velha">
+      <div class="quadrado"></div>
+      <div class="quadrado"></div>
+      <div class="quadrado"></div>
+      <div class="quadrado"></div>
+      <div class="quadrado"></div>
+      <div class="quadrado"></div>
+      <div class="quadrado"></div>
+      <div class="quadrado"></div>
+      <div class="quadrado"></div>
     </div>
+    <div class="container-botao-reiniciar">
+      <button>
+        <img
+          src="assets/icons8-reiniciar-svg.svg"
+          alt="icone botão reiniciar placar"
+          class="botao-reiniciar"
+        />
+      </button>
+    </div>
+    <div class="container-anuncio escondido">
+      <h2>Jogador 1 <br />ganhou</h2>
+    </div>
+    <script src="scripts/logicaJogo.js"></script>
+    <script src="scripts/atribuirValores.js"></script>
   </body>
 </html>
