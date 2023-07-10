@@ -135,7 +135,7 @@ body {
 }
 
 .botao-reiniciar {
-  color: var(--laranja-claro);
+  color: var(--cor-clara-primaria);
   width: 1.5rem;
   aspect-ratio: 1/1;
 }

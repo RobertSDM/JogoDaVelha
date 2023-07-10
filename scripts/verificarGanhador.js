@@ -1,3 +1,9 @@
+const botaoReiniciar = document.querySelector('.botao-reiniciar');
+botaoReiniciar.addEventListener('click', () => {
+  reiniciaJogo(1);
+});
+
+//lista com objetos com sequencias que possam dar a vitoria ao jogador
 const posiocoesVitoria = [
   [1, 2, 3],
   [4, 5, 6],
@@ -9,6 +15,14 @@ const posiocoesVitoria = [
   [3, 5, 7],
 ];
 
+/*verifica se na listaJogada de um jogador tem uma sequencia
+de numeros que representam os blocos que ele clicou no jogo,
+
+caso a lista posicoesVitoria possua um elemento que esta 
+na listaJogada o contador adicionara um a contagem
+
+se o contador chegar a tres a vitoria é registada ao jogador que
+clicou*/
 function checaVitoria(jogada) {
   for (cont = 0; cont < posiocoesVitoria.length; cont++) {
     let contador = 0;
@@ -21,14 +35,17 @@ function checaVitoria(jogada) {
         if (contador === 3) {
           apareceVitoria(jogada);
           return;
+        } else {
+          checaVelha() && inclui === false ? reiniciaJogo() : false;
         }
-      } else {
-        checaVelha() ? reiniciaJogo(2) : false;
       }
     }
   }
 }
 
+/*apareceVitoria retira a classe escondido do container-anuncio, 
+para que o elemento possa aparecer na tela, 
+também coloca o titulo do jogador que ganhou no elemento*/
 function apareceVitoria(jogada) {
   const cardVitoria = document.querySelector('.container-anuncio');
   const jogador = document.querySelector('.jogador');
@@ -39,29 +56,31 @@ function apareceVitoria(jogada) {
   }, 700);
 }
 
+//escondeVitoria adiciona a classe escondido ao elemento container-anuncio
 function escondeVitoria(jogada, cardVitoria) {
   alteraPlacar(jogada);
   cardVitoria.classList.add('escondido');
 }
 
+//alteraPlacar muda o contador de vitoria do jogador que venceu
 function alteraPlacar(jogada) {
   const pontos = jogada.elemento.querySelector('.pontos');
   pontos.innerText = jogada.pontos += 1;
-  reiniciaJogo(0);
+  reiniciaJogo();
 }
 
-function reiniciaJogo(reiniciarTudo) {
-  if (reiniciarTudo != 1) {
-    quadrado.forEach(q => {
-      q.innerText = '';
-    });
-    jogador1.listaJogada = [];
-    jogador2.listaJogada = [];
-  } else {
-    reiniciaTudo();
-  }
+/*reiniciaJogo redefine os espaços do jogo que estejam com alguma joga,
+também redefine as listaJogada*/
+function reiniciaJogo() {
+  quadrado.forEach(q => {
+    q.innerText = '';
+  });
+  jogador1.listaJogada = [];
+  jogador2.listaJogada = [];
 }
 
+/*reiniciaJogo redefine os espaços do jogo que estejam com alguma joga,
+também redefine as listaJogada e redefine o placar*/
 function reiniciaTudo() {
   const pontos = document.querySelectorAll('.pontos');
 
@@ -80,6 +99,8 @@ function reiniciaTudo() {
   trocaJogador();
 }
 
+/*checaVelha verifica que todos os espacos do jogo estejam cheios
+e ele retornara verdadeiro*/
 function checaVelha() {
   let marca = 0;
   for (contador = 0; contador < quadrado.length; contador++) {
@@ -91,8 +112,3 @@ function checaVelha() {
     }
   }
 }
-
-const botaoReiniciar = document.querySelector('.botao-reiniciar');
-botaoReiniciar.addEventListener('click', () => {
-  reiniciaJogo(1);
-});
