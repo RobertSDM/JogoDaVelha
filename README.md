@@ -1,2 +1,10 @@
-# JogoDaVelha
-Um jogo da velha de dois jogadores que pode ser jogado pela web.
+# Jogo da Velha
+
+ > Esse projeto foi feito para aplicar o meu aprendizado em **Front End**
+
+---
+
+#### Tecnologias usadas
+- JavaScript
+- CSS
+- HTML
