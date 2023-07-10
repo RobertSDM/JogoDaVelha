@@ -3,13 +3,17 @@ const quadrado = document.querySelectorAll('.quadrado');
 adicionarIdAElementos();
 
 jogador1 = {
+  titulo: 'Jogador 1',
   jogada: 'X',
   listaJogada: [],
+  pontos: 0,
   elemento: document.querySelector('.jogador1'),
 };
 jogador2 = {
+  titulo: 'Jogador 2',
   jogada: 'O',
   listaJogada: [],
+  pontos: 0,
   elemento: document.querySelector('.jogador2'),
 };
 let jogadaAtual = jogador2.jogada;
@@ -18,9 +22,11 @@ trocaJogador();
 quadrado.forEach(q => {
   q.addEventListener('click', c => {
     const elementoAlvo = c.target;
-    validaJogada(elementoAlvo);
-
-    trocaJogador();
+    if (validaJogada(elementoAlvo)) {
+      elementoAlvo.innerText = jogadaAtual;
+      adicionaIdLista(elementoAlvo);
+      trocaJogador();
+    }
   });
 });
 
@@ -33,18 +39,15 @@ function adicionarIdAElementos() {
 function adicionaIdLista(alvo) {
   if (alvo.innerText === jogador1.jogada) {
     jogador1.listaJogada.push(alvo.id);
-    checaVitoria(jogador1.listaJogada);
+    checaVitoria(jogador1);
   } else if (alvo.innerText === jogador2.jogada) {
     jogador2.listaJogada.push(alvo.id);
-    checaVitoria(jogador2.listaJogada);
+    checaVitoria(jogador2);
   }
 }
 
 function validaJogada(elementoAlvo) {
-  if (elementoAlvo.innerText === '') {
-    elementoAlvo.innerText = jogadaAtual;
-    adicionaIdLista(elementoAlvo);
-  }
+  return elementoAlvo.innerText === '';
 }
 
 function adicionaClasseJogadorAtual(jogada) {
