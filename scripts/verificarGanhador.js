@@ -1,6 +1,6 @@
 const botaoReiniciar = document.querySelector('.botao-reiniciar');
 botaoReiniciar.addEventListener('click', () => {
-  reiniciaJogo(1);
+  reiniciaTudo();
 });
 
 //lista com objetos com sequencias que possam dar a vitoria ao jogador
@@ -26,6 +26,7 @@ clicou*/
 function checaVitoria(jogada) {
   for (cont = 0; cont < posiocoesVitoria.length; cont++) {
     let contador = 0;
+    let velha = 0;
     for (cont2 = 0; cont2 < jogada.listaJogada.length; cont2++) {
       let inclui = posiocoesVitoria[cont].includes(
         parseInt(jogada.listaJogada[cont2])
@@ -35,12 +36,11 @@ function checaVitoria(jogada) {
         if (contador === 3) {
           apareceVitoria(jogada);
           return;
-        } else {
-          checaVelha() && inclui === false ? reiniciaJogo() : false;
         }
       }
     }
   }
+  checaVelha();
 }
 
 /*apareceVitoria retira a classe escondido do container-anuncio, 
@@ -102,12 +102,12 @@ function reiniciaTudo() {
 /*checaVelha verifica que todos os espacos do jogo estejam cheios
 e ele retornara verdadeiro*/
 function checaVelha() {
-  let marca = 0;
+  let velha = 0;
   for (contador = 0; contador < quadrado.length; contador++) {
     if (quadrado[contador].innerText != '') {
-      marca++;
-      if (marca === 9) {
-        return true;
+      velha++;
+      if (velha === 9) {
+        reiniciaJogo();
       }
     }
   }
