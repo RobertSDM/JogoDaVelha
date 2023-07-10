@@ -8,3 +8,9 @@
 - JavaScript
 - CSS
 - HTML
+
+#### Navegadores testados
+
+> Google Chrome
+> FireFox Developer Edition
+> Microsoft Edge
