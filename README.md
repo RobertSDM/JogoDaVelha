@@ -11,6 +11,6 @@
 
 #### Navegadores testados
 
-> Google Chrome
-> FireFox Developer Edition
-> Microsoft Edge
+- Google Chrome
+- FireFox Developer Edition
+- Microsoft Edge
