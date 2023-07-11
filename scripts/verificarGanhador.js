@@ -51,6 +51,7 @@ function apareceVitoria(jogada) {
   const jogador = document.querySelector('.jogador');
   jogador.innerText = jogada.titulo;
   cardVitoria.classList.remove('escondido');
+  reiniciaJogo();
   setTimeout(() => {
     escondeVitoria(jogada, cardVitoria);
   }, 700);
@@ -66,7 +67,6 @@ function escondeVitoria(jogada, cardVitoria) {
 function alteraPlacar(jogada) {
   const pontos = jogada.elemento.querySelector('.pontos');
   pontos.innerText = jogada.pontos += 1;
-  reiniciaJogo();
 }
 
 /*reiniciaJogo redefine os espaços do jogo que estejam com alguma joga,
