@@ -14,5 +14,4 @@
 - Google Chrome
 - FireFox Developer Edition
 - Microsoft Edge
-
-- [ ] 
+- 
